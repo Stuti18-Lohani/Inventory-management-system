@@ -18,7 +18,7 @@ function App() {
   // 3. API se data fetch karne ka logic
   const fetchProducts = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/api/products');
+      const response = await fetch('https://inventory-management-system-y24n.onrender.com/api/products');
       const data = await response.json();
       setProducts(Array.isArray(data) ? data : []);
     } catch (error) {
@@ -35,8 +35,8 @@ function App() {
     e.preventDefault();
     const isEditing = editingProduct !== null;
     const url = isEditing
-      ? `http://127.0.0.1:5000/api/products/${editingProduct.id}`
-      : 'http://127.0.0.1:5000/api/products';
+      ? `https://inventory-management-system-y24n.onrender.com/api/products/${editingProduct.id}`
+      : 'https://inventory-management-system-y24n.onrender.com/api/products';
 
     try {
       const response = await fetch(url, {
@@ -69,7 +69,7 @@ function App() {
 
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure?")) {
-      await fetch(`http://127.0.0.1:5000/api/products/${id}`, { method: 'DELETE' });
+      await fetch(`https://inventory-management-system-y24n.onrender.com/api/products/${id}`, { method: 'DELETE' });
       fetchProducts();
     }
   };
